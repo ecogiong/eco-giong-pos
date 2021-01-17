@@ -1,6 +1,6 @@
 import React, { useEffect }from 'react'
 import {useState} from 'react';
-import { View, Text, StyleSheet, Dimensions, TextInput, TouchableOpacity, BackHandler } from 'react-native'
+import { View, StyleSheet} from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 import Logo from './Logo'
 const Splash=(props)=>{

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, ScrollView, Dimensions, Alert} from 'react-native'
-import { Button, Header, Item, Input, Icon, } from 'native-base';
+import { Item, Input, Icon, } from 'native-base';
 import MenuScreen from './MenuScreen'
 import MenuSlider from './MenuSlider'
 import PosScreen from './PosScreen';

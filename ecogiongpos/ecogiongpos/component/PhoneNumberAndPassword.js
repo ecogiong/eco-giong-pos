@@ -1,34 +1,23 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Dimensions, TextInput, TouchableOpacity } from 'react-native'
-import firebase from 'firebase'
-import { HeaderTitle } from 'react-navigation-stack'
+// import firebase from 'firebase'
 import Icon from 'react-native-vector-icons/Ionicons'
-import LinearGradient from 'react-native-linear-gradient'
 import Feather from 'react-native-vector-icons/Feather'
-
+import database from '@react-native-firebase/database'
 const {width: WIDTH } =  Dimensions.get('screen')
+
 class PhoneNumberAndPassword extends React.Component{
     constructor(props){
-        super(props)
-        const firebaseconfig={
-            apiKey: "AIzaSyCKUywS1fPByQSb-ISnlC-5Bgt2lbOpOeo",
-            authDomain: "giong-app.firebaseapp.com",
-            databaseURL: "https://giong-app.firebaseio.com",
-            projectId: "giong-app",
-            storageBucket: "giong-app.appspot.com",
-            messagingSenderId: "174265541481",
-            appId: "1:174265541481:web:d3cde5857e95d5eb6f93f8",
-            measurementId: "G-3R3KB1W7PL"}
-            if (!firebase.apps.length) 
-            {
-                firebase.initializeApp(firebaseconfig);
-            }
+        super(props) 
+                
             this.state={
                 PhoneNumber:'',
                 Password:'',
                 Status:true
             };
-            this.data = firebase.database().ref('/Accounts');      
+
+            this.data = database().ref('/Accounts'); 
+               
     };
    
     onPressChangeStatus=()=>{
@@ -36,6 +25,8 @@ class PhoneNumberAndPassword extends React.Component{
             Status: !this.state.Status
         })
     }
+
+   
 
 
     onPress=()=>{     
@@ -73,6 +64,7 @@ class PhoneNumberAndPassword extends React.Component{
         
     
     };
+
 
 
     render(){
@@ -163,6 +155,11 @@ class PhoneNumberAndPassword extends React.Component{
                             Đăng nhập
                         </Text>
                 </TouchableOpacity>
+                {/* <TouchableOpacity  style={style.ButtonContainer}>
+                        <Text style={style.ButtonText}>
+                            Phone
+                        </Text>
+                </TouchableOpacity> */}
             </View>
         );
     }

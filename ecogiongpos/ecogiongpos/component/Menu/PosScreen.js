@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, ScrollView, Dimensions} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
-import Feather from 'react-native-vector-icons/Feather' 
 export default class PosScreen extends Component{
     render(){
         var items = this.props.elm.map((a, index)=>{

@@ -1,32 +1,18 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Button, Alert } from 'react-native'
-import firebase from 'firebase'
-
-
+import database from '@react-native-firebase/database'
 export default class ForgetPassword extends React.Component{
 
     constructor(props){
         super(props)
-        const firebaseconfig={
-            apiKey: "AIzaSyCKUywS1fPByQSb-ISnlC-5Bgt2lbOpOeo",
-            authDomain: "giong-app.firebaseapp.com",
-            databaseURL: "https://giong-app.firebaseio.com",
-            projectId: "giong-app",
-            storageBucket: "giong-app.appspot.com",
-            messagingSenderId: "174265541481",
-            appId: "1:174265541481:web:d3cde5857e95d5eb6f93f8",
-            measurementId: "G-3R3KB1W7PL"
-        };           
-                   
-        if (!firebase.apps.length) 
-        {
-            firebase.initializeApp(firebaseconfig);
-        }
+
         this.state={
             PhoneNumber:'',
             Password:'',
         };
-        this.data = firebase.database().ref('/Accounts');    
+       
+        this.data = database().ref('/Accounts'); 
+    
     }
 
     onPress=()=>{     
@@ -39,7 +25,7 @@ export default class ForgetPassword extends React.Component{
             }
             else {
                
-                firebase.database().ref('Accounts/'+([Object.keys(snap_val)].toString())).update({
+                database().ref('Accounts/'+([Object.keys(snap_val)].toString())).update({
                     Password: this.state.Password
                 })
                 console.log(snap_val)

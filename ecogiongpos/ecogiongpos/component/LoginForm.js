@@ -1,13 +1,12 @@
-import { View, Text, StyleSheet, Button, ImageBackground, Group, BackHandler } from 'react-native'
+import { View,StyleSheet,BackHandler } from 'react-native'
 import React, {useState} from 'react'
 import {useEffect} from 'react'
 import PhoneNumberAndPassword from './PhoneNumberAndPassword'
 import Logo from './Logo'
-import Splash from './SplashScreen'
 
 const LoginForm = (props)=>{
     disableBackButton=()=>{
-        BackHandler.exitApp();
+            BackHandler.exitApp();
         return true;
     }
     useEffect(() => {
@@ -29,7 +28,7 @@ const LoginForm = (props)=>{
             </View>
 
             <View style={style.PhoneNumberAndPassword} >
-                <PhoneNumberAndPassword  navigation ={props.navigation.navigate}/>
+                <PhoneNumberAndPassword navigation ={props.navigation.navigate}/>
                
             </View>
             

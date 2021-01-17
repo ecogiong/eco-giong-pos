@@ -1,43 +1,23 @@
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator} from 'react-navigation-stack';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack'
 import Articles from './component/Menu/Articles'
 import ForgetPassword from './component/ForgetPassword';
 import Login from './component/LoginForm'
 import Splash from './component/SplashScreen';
-
-// const bottomtab = createMaterialBottomTabNavigator(
-//   {
-//   //   Articles:{
-//   //     screen: Articles,
-//   //     navigationOptions:{
-//   //       tabBarIcon: ({tintColor}) => (
-//   //         <View>
-//   //             <Icon style= {[{color: tintColor}]} size= {25} name={'ios-home'}/>
-//   //         </View>
-//   //       ),
-//   //     }
-//   //   }, 
-    
-//   // },
-//   {
-//     activeColor: 'black',
-//     inactiveColor: '#fff',
-//     barStyle: { backgroundColor: 'rgba(224, 175, 81, 0.94)' },
-//   }
-// )
-
-
-const App = createStackNavigator(
-  
-  {
-    'Splash':{screen: Splash, navigationOptions:{headerShown: false}},
-    "Login": {screen:Login, navigationOptions:{headerShown: false} }, 
-    "Articles": {screen: Articles, navigationOptions:{headerShown: false}},
-    "Forget Password":{ screen: ForgetPassword}
-  },
-  {
-        initialRouteName:'Splash',
-  }
-);
+const Stack = createStackNavigator();
+function App(){
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Splash" screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Articles" component={Articles} />
+        <Stack.Screen name="Login" component={Login}/>
+        <Stack.Screen name="Forget Password" component={ForgetPassword}/>
+        <Stack.Screen name="Splash" component={Splash}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
  
-export default createAppContainer(App);
+export default App;
